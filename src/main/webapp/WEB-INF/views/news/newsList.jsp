@@ -19,9 +19,9 @@
         <c:forEach var="news" items="${newsList}" varStatus="status">
             <li class="list-group-item list-group-action d-flex justify-content-between align-item-center">
                 [${status.count}]
-                <a href="/news.nhn?action=getNews&aid=${news.aid}" class="text-decoration-none">${news.title}</a>
+                <a href="/news/${news.aid}" class="text-decoration-none">${news.title}</a>
                     ${news.date}
-                <a href="/news.nhn?action=delNews&aid=${news.aid}"><span class="badge bg-secondary">&times;</span></a>
+                <a href="/news/delete/${news.aid}"><span class="badge bg-secondary">&times;</span></a>
             </li>
         </c:forEach>
     </ul>
@@ -37,7 +37,7 @@
         aria-expanded="false" aria-controls="addForm">뉴스 등록</button>
 <div class="collapse" id="addForm">
     <div class="card card-body">
-        <form action="/news.nhn?action=addNews" enctype="multipart/form-data" method="post">
+        <form action="/news/add" enctype="multipart/form-data" method="post">
             <label for="title" class="form-label">제목</label>
             <input type="text" id="title" name="title" class="form-control">
             <label for="img" class="form-label">이미지</label>

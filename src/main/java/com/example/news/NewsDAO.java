@@ -98,7 +98,7 @@ public class NewsDAO {
 //    }
 
 
-  public void addNews(News news) throws SQLException{
+  public int addNews(News news) throws SQLException{
     Connection conn = open();
     PreparedStatement pstmt;
     pstmt = conn.prepareStatement("insert into news(title, img, date, content) " +
@@ -113,6 +113,7 @@ public class NewsDAO {
     }
     pstmt.close();
     conn.close();
+    return res;
   }
 
   public void delNews(int aid) throws SQLException{
